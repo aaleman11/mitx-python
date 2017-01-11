@@ -7,3 +7,5 @@ Created on Tue Jan 10 18:43:22 2017
 """
 
 print('Hello, world!')
+
+print(3*5)

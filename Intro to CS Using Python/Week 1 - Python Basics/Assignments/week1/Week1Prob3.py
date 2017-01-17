@@ -13,17 +13,28 @@ s = s.lower()
 
 #instantiate variables for longest substring and length of substring
 longest_substring = ''
-length_of_substring = len(longest_substring)
+temp_string = ''
 
-#slicing syntax is word[include:exclude]
-
-for x in range(len(s)):
-    next_index = x+1
-
-    if(s[x] < s[next_index]):
-        print("true")
-        curr_inclusive_index = next_index
-
+if (len(s)==1):
+    print("Longest substring in alphabetical order is:", s)
+else:
+    for i in range(len(s)-1):
+        if (s[i] <= s[i+1]):
+            temp_string += s[i]
+            if (i+1 == len(s)-1):
+                temp_string += s[i+1]
+                if (len(temp_string) > len(longest_substring)):
+                    longest_substring = temp_string
+                temp_string = ''
+        else:
+            temp_string += s[i]
+            if (len(temp_string) > len(longest_substring)):
+                longest_substring = temp_string
+            temp_string = ''
+    if(len(temp_string) == len(s)-1):
+        print("Longest subtring in alphabetical order is:", s)
+    else:
+        print("Longest substring in alphabetical order is:", longest_substring)
 
 
 
